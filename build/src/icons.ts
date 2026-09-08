@@ -48,7 +48,7 @@ async function dedupeOne(
   zipPath: string,
   written: Set<string>,
 ): Promise<IconResult> {
-  const slug = buildSlug(zipPath.split('/').pop() ?? '');
+  const slug = buildSlug(basename(zipPath));
   const cachePath = join(CACHE_DIR, 'iconmaps', `${slug}.json`);
 
   // A cached map is only valid if every referenced icon still exists.
